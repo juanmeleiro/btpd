@@ -10,12 +10,12 @@
 #include <algorithm>
 #include <chrono>
 #include <thread>
+#include "oscilators.cpp"
 
 using std::transform;
 using std::vector;
 
-#define PI 3.1415926535
-
+/*
 class Sine {
     public:
         double time = 0;
@@ -30,7 +30,7 @@ class Sine {
             time += buffer->size()/this->sampleRate;    
         }
 };
-
+*/
 
 /* Bureuacracy */
 
@@ -81,22 +81,30 @@ void checkErrorFunction(const char* file, int line) {
 #define checkError() checkErrorFunction(__FILE__, __LINE__)
 /* EOB (End of bureuacracy) */
 
-void sine(double frequency, double duration, int sampleRate, double* buffer)
-{}
 int main()
 {
     Sine s;
+    Triangle t;
+    Square sq;
+
     vector<double> buf(44100*5);
-    s.generate(440.0, &buf);
-   
+    
+    s.generate(0, 440.0, &buf);
+    // t.generate(0, 440.0, &buf);
+    // sq.generate(0, 440.0, &buf);
+
+    //   printf("Generated Sine\n");
+    //    for (int i = 0; i < 100; i++) printf("%f\n", buf[i]);
+
     vector<short> bufShort(44100*5);
 
     transform(buf.begin(), buf.end(), bufShort.begin(), [](double x){
-        return static_cast<short>(x * (1<<16 - 1));
+        return static_cast<short>(x * 30000);
     });
 
 //    for (int i = 0; i <= 100; i++) printf("%d\n", bufShort[3000+i]);	
 
+    //    printf("Ready to initialize\n");
     initialize();
     checkError();
     
@@ -113,10 +121,18 @@ int main()
     alSourcei(source, AL_BUFFER, buffer);
     checkError();
 
+    //    printf("Before play\n");
+
     alSourcePlay(source);
     checkError();
+    
+     //   printf("After play\n");
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+     //   printf("Before wait\n");
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(3000));
+
+     //   printf("After wait\n");
 
     checkError();
     exit();
