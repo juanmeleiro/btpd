@@ -1,4 +1,4 @@
-FEATURE's GUIDELINES
+# GUIDELINES
 	- Ler arquivos
 	- Reproduzir arquivos
 	- Editar arquivos (Edição)
@@ -12,3 +12,22 @@ FEATURE's GUIDELINES
 		- Reproduzir t segundos de áudio
 		- Gerar t segundos de samples
 		- Alterar variáveis
+*****
+
+- Sintaxe
+	- Estrutura/Padrões dos arquivos
+	- Quais são os objetos?
+- Leitura
+	- Estrutura/Padrões dos objetos (semântica)
+	- Parsing
+	- Un-parsing
+- Reprodução
+	- Geração de sampĺes
+	- Reprodução de samples
+- Edição
+	- Manipulação de objetos
+	- GUI
+- API
+	- Alteração de variáveis
+	- Reprodução de samples
+	- Produção de samples
