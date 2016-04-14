@@ -1,0 +1,14 @@
+FEATURE's GUIDELINES
+	- Ler arquivos
+	- Reproduzir arquivos
+	- Editar arquivos (Edição)
+		- Criar / Deletar objetos
+		- Conectar objetos
+		- Alterar parâmetros
+		- Salvar arquivo
+		- Criar subpatches
+		- (?) Criar objetos
+	- API (Reprodução)
+		- Reproduzir t segundos de áudio
+		- Gerar t segundos de samples
+		- Alterar variáveis
